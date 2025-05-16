@@ -18,6 +18,6 @@ This project is an end-to-end real-time health monitoring system integrating IoT
 - **Model:** Deep Neural Network (DNN)
 
 ## Team
-Project developed by **The Ohmies** Team 
-Faculty of Engineering                                                                                    
+Project developed by **The Ohmies** Team                                                                        
+Faculty of Engineering                                                                            
 Kafrelsheikh University 
