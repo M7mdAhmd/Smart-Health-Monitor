@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CardC</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+  <link rel="icon" href="{{ url_for('static', filename='heart.png') }}" type="image/x-icon">
+  <meta name="theme-color" content="#4361ee">
+</head>
+<body>
+  <div class="dashboard">
+    <header>
+      <div class="logo">
+        <h1>CardC</h1>
+      </div>
+      <div class="status-panel">
+        <div class="status-label">Patient Status</div>
+        <div id="status" class="status-badge status-unknown">Unknown</div>
+        <div class="confidence-meter">
+          <div class="confidence-label">Confidence</div>
+          <div class="confidence-value"><span id="confidence">--</span>%</div>
+        </div>
+      </div>
+    </header>
+    
+    <main class="metrics-grid">
+      <div class="metric-card heart-rate">
+        <div class="metric-header">
+          <div class="metric-icon"><i class="fas fa-heart"></i></div>
+          <div class="metric-content">
+            <div class="metric-title">Heart Rate</div>
+            <div class="metric-data"><span id="bpm">--</span><span class="metric-unit">BPM</span></div>
+          </div>
+        </div>
+        <div class="metric-visual"><div class="heartbeat"></div></div>
+      </div>
+      
+      <div class="metric-card temperature">
+        <div class="metric-header">
+          <div class="metric-icon"><i class="fas fa-thermometer-half"></i></div>
+          <div class="metric-content">
+            <div class="metric-title">Body Temperature</div>
+            <div class="metric-data"><span id="temperature">--</span><span class="metric-unit">°C</span></div>
+          </div>
+        </div>
+        <div class="metric-visual"><div class="temp-indicator"></div></div>
+      </div>
+      
+      <div class="metric-card oxygen">
+        <div class="metric-header">
+          <div class="metric-icon"><i class="fas fa-lungs"></i></div>
+          <div class="metric-content">
+            <div class="metric-title">Oxygen Saturation</div>
+            <div class="metric-data"><span id="spo2">--</span><span class="metric-unit">%</span></div>
+          </div>
+        </div>
+        <div class="metric-visual"><div class="oxygen-level"></div></div>
+      </div>
+      
+      <div class="metric-card ecg">
+        <div class="metric-header">
+          <div class="metric-icon"><i class="fas fa-wave-square"></i></div>
+          <div class="metric-content">
+            <div class="metric-title">ECG Reading</div>
+            <div class="metric-data"><span id="ecg">--</span><span class="metric-unit">mV</span></div>
+          </div>
+        </div>
+        <div class="metric-visual"><canvas id="ecg-graph"></canvas></div>
+      </div>
+    </main>
+    
+    <div class="timestamp-section">
+      Last updated: <span id="last-updated">--:--:--</span>
+    </div>
+  </div>
+  
+  <div id="alert-notification" class="alert-notification">
+    <div class="alert-icon"><i class="fas fa-exclamation-triangle"></i></div>
+    <div class="alert-content">
+      <div class="alert-title" id="alert-title">Alert</div>
+      <div class="alert-message" id="alert-message">Patient status requires attention</div>
+    </div>
+    <button class="close-alert" id="close-alert"><i class="fas fa-times"></i></button>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
